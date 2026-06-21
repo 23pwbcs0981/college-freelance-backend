@@ -10,11 +10,12 @@ const clientRoutes = require('./routes/clientRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 const applicationRoutes = require('./routes/applicationRoute');
 
-const PORT = 6001;
+const PORT = process.env.PORT || 6001;
 
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: ["http://localhost:3000", "https://college-freelance-vslz.vercel.app"],
+  credentials: true
 }));
 app.use('/students', studentRoutes);
 app.use('/clients', clientRoutes);
